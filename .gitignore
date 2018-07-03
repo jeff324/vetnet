@@ -1,0 +1,4 @@
+inst/doc
+.Rproj.user
+vetnet.Rproj
+R/check_github_install.R

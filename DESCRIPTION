@@ -1,0 +1,26 @@
+Package: vetnet
+Type: Package
+Title: Runs the Vanderbilt Expertise Test Given a Distance Matrix
+Version: 0.0.0.9000
+Author: Jeffrey Annis
+Maintainer: Jeffrey Annis <jeff.annis@vanderbilt.edu>
+Description: The VET is a memory test in which a study list of 6 images is shown
+    followed by a series of test trials. A test trial is composed of one target 
+    image and two distractor images. As input, this package takes a distance matrix where each
+    row and column describe the distance between two images on the VET. Row and column
+    names correspond to the names of the images in the VET. For example, the cell corresponding to 
+    the row named 'bird_1.bmp' and the column 'bird_2.bmp' corresponds to the distance between those
+    two images. In addition to a distance matrix, the package also requires a function that
+    outputs a probability of correctly choosing a target image given the similarities on each test trial.
+Imports:
+    plyr,
+    reshape2,
+    msm,
+    corrplot
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
