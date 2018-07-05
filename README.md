@@ -48,10 +48,8 @@ par_list = make_parameter_list(num_subjects=10,par_names=c('c','beta'),lower=c(0
 model = function(d,pars) {
      c = pars$c #sensitivity parameter
      beta = pars$beta #response criterion parameter
-     #d is the distance between test and study items
-     s = exp(-c*d) #transforms distance to similarity
-     #transforms similarity to response probability
-     p = sapply(d, function(d) s / (s + beta)) 
+     s = exp(-c*d) #transforms distance, d, to similarity
+     p = sapply(d, function(d) s / (s + beta)) #transforms similarity to response probability
      p = p[1] / sum(p) #probability of picking target 
 }
 
