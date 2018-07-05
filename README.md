@@ -19,16 +19,10 @@ install.packages('devtools')
 
 ### Installing the package from GitHub
 
-1.  Because it is a private repo, we need to generate a authorization token. Go to <https://github.com/settings/tokens> and click "Generate new token."
-2.  Enter token description (can be anything). Select "repo" radio button. Click "Generate token."
-3.  Copy and paste the token into a text file and save it.
-4.  Copy and paste into R code below and run in Rstudio:
+From RStudio:
 
 ``` r
-GITHUB_PAT = 'paste token here'
-
-devtools::install_github('chenchals/palmeri-vetnet', ref = 'develop',
-                         subdir = 'vet/vetnet', auth_token = GITHUB_PAT)
+devtools::install_github('jeff324/vetnet')
 ```
 
 ### Documentation
