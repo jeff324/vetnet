@@ -56,10 +56,13 @@ get_list = function(vet, dst, model, pars){
 #' get_corr_matrix(response_lists)
 #' @export
 run_vet = function(vet, dst, model, par){
-     if(is.matrix(dst)){ #if we are running a single distance matrix
-          if(nrow(par)==1){ #if we are running a single parameter set
+     if (is.matrix(dst)) { #if we are running a single distance matrix
+          if (nrow(par)==1) { #if we are running a single parameter set
                response_lists = get_list(vet, dst, model, par)
-          }else{ #if we are running multiple parameters with single distance matrix
+          }else if (ncol(par)==1) { #if we are running multiple parameters with single distance matrix with a single parameter
+               par = cbind(par,par)
+               response_lists = plyr::llply(1:nrow(par),function(x) get_list(vet, dst, model, par[x,]), .progress = 'win')
+          }else{
                response_lists = plyr::llply(1:nrow(par),function(x) get_list(vet, dst, model, par[x,]), .progress = 'win')
           }
      }else{ #if we are running multiple distance matrices
